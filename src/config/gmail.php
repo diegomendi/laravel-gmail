@@ -28,17 +28,42 @@ return [
 	|
 	*/
 
-	'project_id' => env('GOOGLE_PROJECT_ID'),
-	'client_id' => env('GOOGLE_CLIENT_ID'),
-	'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-	'redirect_url' => env('GOOGLE_REDIRECT_URI', '/'),
-
-	'state' => null,
+	/*
+	|--------------------------------------------------------------------------
+	| Application Default Credentials
+	|--------------------------------------------------------------------------
+	|
+	*/
+	'use_application_default_credentials' => true,
+	'application_name' => env('GOOGLE_APPLICATION_NAME', ''),
+	'subject' => env('GOOGLE_SUBJECT_EMAIL', ''),
 
 	'scopes' => [
-		'readonly',
-		'modify',
+			"https://mail.google.com/",
+			"https://www.googleapis.com/auth/gmail.compose",
+			"https://www.googleapis.com/auth/gmail.modify",
+			"https://www.googleapis.com/auth/gmail.send"
 	],
+
+
+	/*
+	|--------------------------------------------------------------------------
+	| Personal Default Credentials
+	|--------------------------------------------------------------------------
+	|
+	*/
+	// 'project_id' => env('GOOGLE_PROJECT_ID'),
+	// 'client_id' => env('GOOGLE_CLIENT_ID'),
+	// 'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+	// 'redirect_url' => env('GOOGLE_REDIRECT_URI', '/'),
+	// 'json_file' => env('GOOGLE_JSON_FILE'),
+
+	//'state' => null,
+
+	// 'scopes' => [
+	// 	'readonly',
+	// 	'modify',
+	// ],
 
 	/*
 	|--------------------------------------------------------------------------

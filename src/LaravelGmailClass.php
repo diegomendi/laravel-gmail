@@ -23,9 +23,9 @@ class LaravelGmailClass extends GmailConnection
 	 */
 	public function message()
 	{
-		if (!$this->getToken()) {
-			throw new AuthException('No credentials found.');
-		}
+		// if (!$this->getToken()) {
+		// 	throw new AuthException('No credentials found.');
+		// }
 
 		return new Message($this);
 	}

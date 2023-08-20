@@ -10,9 +10,11 @@ use Google_Service_Gmail_WatchRequest;
 use Illuminate\Container\Container;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
+use Dacastro4\LaravelGmail\Modifications\ConfigsApp;
 
 class GmailConnection extends Google_Client
 {
+	use ConfigsApp;
 	use HasLabels;
 	use Configurable {
 		__construct as configConstruct;
@@ -37,13 +39,13 @@ class GmailConnection extends Google_Client
 
 		$this->configuration = $config;
 
-		parent::__construct($this->getConfigs());
+		parent::__construct($this->getConfigsApp());
 
-		$this->configApi();
+		// $this->configApi();
 
-		if ($this->checkPreviouslyLoggedIn()) {
-			$this->refreshTokenIfNeeded();
-		}
+		// if ($this->checkPreviouslyLoggedIn()) {
+		// 	$this->refreshTokenIfNeeded();
+		// }
 
 	}
 
